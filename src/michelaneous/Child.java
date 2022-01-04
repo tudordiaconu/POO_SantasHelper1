@@ -12,16 +12,41 @@ public class Child {
     private String city;
     private Double niceScore;
     private ArrayList<Category> giftsPreferences;
+    private Double averageScore;
     private String ageCategory;
+    public ArrayList<Double> niceScoreHistory;
+    private Double assignedBudget;
+    public ArrayList<Gift> receivedGifts;
 
     public Child() {
-        this.id = null;
+        this.id = -1;
         this.lastName = null;
         this.firstName = null;
-        this.age = null;
+        this.age = 0;
         this.city = null;
-        this.niceScore = null;
-        this.giftsPreferences = null;
+        this.niceScore = (double) 0;
+        this.giftsPreferences = new ArrayList<>();
+        this.averageScore = (double) 0;
+        this.ageCategory = null;
+        this.niceScoreHistory = new ArrayList<>();
+        this.assignedBudget = (double) 0;
+        this.receivedGifts = new ArrayList<>();
+    }
+
+    public Double getAssignedBudget() {
+        return assignedBudget;
+    }
+
+    public void setAssignedBudget(Double assignedBudget) {
+        this.assignedBudget = assignedBudget;
+    }
+
+    public Double getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(Double averageScore) {
+        this.averageScore = averageScore;
     }
 
     public Integer getId() {

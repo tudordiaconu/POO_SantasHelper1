@@ -26,12 +26,11 @@ public final class Main {
     public static void main(final String[] args) throws IOException {
 
         ReadWrite readWrite = new ReadWrite(new Database());
-        File directory = new File("tests");
 
-        for (File file : Objects.requireNonNull(directory.listFiles())) {
-            readWrite.readAllData(file);
+        for (Integer i = 1; i <= 25; i++) {
+            String filename = "tests/test" + i + ".json";
+            readWrite.readAllData(filename);
             Simulation.roundZero(readWrite.getDatabase());
-
             int x = 1;
         }
 

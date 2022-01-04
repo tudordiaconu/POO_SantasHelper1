@@ -20,10 +20,10 @@ public class Database {
         this.numberOfYears = null;
         this.santaBudget = null;
         this.initialData = null;
-        this.children = null;
-        this.gifts = null;
-        this.cities = null;
-        this.annualChanges = null;
+        this.children = new ArrayList<>();
+        this.gifts = new ArrayList<>();
+        this.cities = new ArrayList<>();
+        this.annualChanges = new ArrayList<>();
     }
 
     public Integer getNumberOfYears() {

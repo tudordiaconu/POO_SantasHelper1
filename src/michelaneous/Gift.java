@@ -9,7 +9,7 @@ public class Gift {
 
     public Gift() {
         this.productName = null;
-        this.price = null;
+        this.price = (double) 0;
         this.category = null;
     }
 

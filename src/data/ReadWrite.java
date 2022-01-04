@@ -12,8 +12,8 @@ public class ReadWrite {
         this.database = database;
     }
 
-    public void readAllData(File file) throws IOException {
-        database = new ObjectMapper().readerFor(Database.class).readValue(file);
+    public void readAllData(String file) throws IOException {
+        database = new ObjectMapper().readerFor(Database.class).readValue(new File(file));
     }
 
     public void writeAllData() {
