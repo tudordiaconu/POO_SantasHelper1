@@ -17,6 +17,7 @@ public class Child {
     public ArrayList<Double> niceScoreHistory;
     private Double assignedBudget;
     public ArrayList<Gift> receivedGifts;
+    public ArrayList<Category> receivedCategories;
 
     public Child() {
         this.id = -1;
@@ -31,6 +32,7 @@ public class Child {
         this.niceScoreHistory = new ArrayList<>();
         this.assignedBudget = (double) 0;
         this.receivedGifts = new ArrayList<>();
+        this.receivedCategories = new ArrayList<>();
     }
 
     public Double getAssignedBudget() {

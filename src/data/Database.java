@@ -3,6 +3,7 @@ package data;
 import enums.Cities;
 import michelaneous.AnnualChange;
 import michelaneous.Child;
+import michelaneous.ChildWriter;
 import michelaneous.Gift;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Database {
     private ArrayList<Gift> gifts;
     private ArrayList<Cities> cities;
     private ArrayList<AnnualChange> annualChanges;
+
 
     public Database() {
         this.numberOfYears = null;
