@@ -3,17 +3,20 @@ package michelaneous;
 import java.util.ArrayList;
 
 public class ChildWriterList {
-    ArrayList<ChildWriter> children;
+    private ArrayList<ChildWriter> children;
 
     public ChildWriterList() {
         this.children = new ArrayList<>();
     }
 
+
+    /** getter for the children */
     public ArrayList<ChildWriter> getChildren() {
         return children;
     }
 
-    public void setChildren(ArrayList<ChildWriter> children) {
+    /** setter for the children */
+    public void setChildren(final ArrayList<ChildWriter> children) {
         this.children = children;
     }
 }

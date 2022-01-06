@@ -16,7 +16,11 @@ public class ChildWriter {
     private Double assignedBudget;
     private ArrayList<Gift> receivedGifts;
 
-    public ChildWriter(Integer id, String lastName, String firstName, String city, Integer age, ArrayList<Category> giftsPreferences, Double averageScore, ArrayList<Double> niceScoreHistory, Double assignedBudget, ArrayList<Gift> receivedGifts) {
+    public ChildWriter(final Integer id, final String lastName, final String firstName,
+                       final String city, final Integer age,
+                       final ArrayList<Category> giftsPreferences, final Double averageScore,
+                       final ArrayList<Double> niceScoreHistory, final Double assignedBudget,
+                       final ArrayList<Gift> receivedGifts) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -32,83 +36,103 @@ public class ChildWriter {
         this.receivedGifts.addAll(receivedGifts);
     }
 
+    /** getter for the id */
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    /** setter for the id */
+    public void setId(final Integer id) {
         this.id = id;
     }
 
+    /** getter for the lastname */
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    /** setter for the lastname */
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
+    /** getter for the firstname */
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    /** setter for the firstname */
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
+    /** getter for the city */
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    /** setter for the city */
+    public void setCity(final String city) {
         this.city = city;
     }
 
+    /** getter for the age */
     public Integer getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    /** setter for the age */
+    public void setAge(final Integer age) {
         this.age = age;
     }
 
+    /** getter for the gift preferences */
     public ArrayList<Category> getGiftsPreferences() {
         return giftsPreferences;
     }
 
-    public void setGiftsPreferences(ArrayList<Category> giftsPreferences) {
+    /** setter for the gift preferences */
+    public void setGiftsPreferences(final ArrayList<Category> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
     }
 
+    /** getter for the average score */
     public Double getAverageScore() {
         return averageScore;
     }
 
-    public void setAverageScore(Double averageScore) {
+    /** setter for the average score */
+    public void setAverageScore(final Double averageScore) {
         this.averageScore = averageScore;
     }
 
+    /** getter for the nice score history */
     public ArrayList<Double> getNiceScoreHistory() {
         return niceScoreHistory;
     }
 
-    public void setNiceScoreHistory(ArrayList<Double> niceScoreHistory) {
+    /** setter for the nice score history */
+    public void setNiceScoreHistory(final ArrayList<Double> niceScoreHistory) {
         this.niceScoreHistory = niceScoreHistory;
     }
 
+    /** getter for the assigned budget */
     public Double getAssignedBudget() {
         return assignedBudget;
     }
 
-    public void setAssignedBudget(Double assignedBudget) {
+    /** setter for the assigned budget */
+    public void setAssignedBudget(final Double assignedBudget) {
         this.assignedBudget = assignedBudget;
     }
 
+    /** getter for the received gifts */
     public ArrayList<Gift> getReceivedGifts() {
         return receivedGifts;
     }
 
-    public void setReceivedGifts(ArrayList<Gift> receivedGifts) {
+    /** setter for the received gifts */
+    public void setReceivedGifts(final ArrayList<Gift> receivedGifts) {
         this.receivedGifts = receivedGifts;
     }
 }
