@@ -3,6 +3,7 @@ package michelaneous;
 import enums.Category;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Child {
     private Integer id;
@@ -163,5 +164,29 @@ public class Child {
     /** setter for the age category */
     public void setAgeCategory(final String ageCategory) {
         this.ageCategory = ageCategory;
+    }
+
+    /** method that allows a child to receive a gift */
+    public void receiveGift(final List<Gift> sortedGifts) {
+        Double money = this.assignedBudget;
+
+        for (Category category : this.getGiftsPreferences()) {
+            if (!this.getReceivedCategories().contains(category)) {
+                for (Gift gift : sortedGifts) {
+                    if (money >= gift.getPrice()) {
+                        if (gift.getCategory() == category) {
+                            if (!this.getReceivedGifts().contains(gift)) {
+                                this.getReceivedGifts().add(gift);
+                                this.getReceivedCategories().add(category);
+                                money -= gift.getPrice();
+                                break;
+                            }
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

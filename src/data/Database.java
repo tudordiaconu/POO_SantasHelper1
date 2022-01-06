@@ -1,5 +1,6 @@
 package data;
 
+import common.Constants;
 import enums.Cities;
 import michelaneous.AnnualChange;
 import michelaneous.Child;
@@ -7,7 +8,7 @@ import michelaneous.Gift;
 
 import java.util.ArrayList;
 
-public class Database {
+public final class Database {
     private Integer numberOfYears;
     private Double santaBudget;
     private InitialData initialData;
@@ -16,15 +17,34 @@ public class Database {
     private ArrayList<Cities> cities;
     private ArrayList<AnnualChange> annualChanges;
 
+    private static Database instance = null;
 
-    public Database() {
-        this.numberOfYears = null;
-        this.santaBudget = null;
-        this.initialData = null;
-        this.children = new ArrayList<>();
-        this.gifts = new ArrayList<>();
-        this.cities = new ArrayList<>();
-        this.annualChanges = new ArrayList<>();
+    private Database() { }
+
+    /** Singleton pattern lazy instantiation */
+    public static Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+
+        return instance;
+    }
+
+    /** sets the age categories for the children */
+    public void setAgeCategories() {
+        for (Child child : this.getChildren()) {
+            if (child.getAge() < Constants.BABY_MAX) {
+                child.setAgeCategory("Baby");
+            }
+
+            if (child.getAge() >= Constants.BABY_MAX && child.getAge() < Constants.KID_MAX) {
+                child.setAgeCategory("Kid");
+            }
+
+            if (child.getAge() >= Constants.KID_MAX && child.getAge() <= Constants.TEEN_MAX) {
+                child.setAgeCategory("Teen");
+            }
+        }
     }
 
     /** getter for the number of years */

@@ -11,7 +11,6 @@ public class WriteDatabase {
         this.annualChildren = new ArrayList<>();
     }
 
-
     /** getter for the list of ChildWriters */
     public ArrayList<ChildWriterList> getAnnualChildren() {
         return annualChildren;

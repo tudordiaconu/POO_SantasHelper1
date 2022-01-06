@@ -1,6 +1,11 @@
 package michelaneous;
 
+import data.Database;
+import enums.Category;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
 
 public class AnnualChange {
     private Double newSantaBudget;
@@ -54,5 +59,38 @@ public class AnnualChange {
     /** setter for the children updates */
     public void setChildUpdates(final ArrayList<ChildUpdate> childrenUpdate) {
         this.childrenUpdates = childrenUpdate;
+    }
+
+    /** makes the updates on the children every year */
+    public void updateChildren(final Database database) {
+        for (ChildUpdate childUpdate : this.getChildrenUpdates()) {
+            for (Child child : database.getChildren()) {
+                if (Objects.equals(child.getId(), childUpdate.getId())) {
+                    if (childUpdate.getNiceScore() != null) {
+                        child.getNiceScoreHistory().add(childUpdate.getNiceScore());
+                    }
+
+                    if (childUpdate.getGiftsPreferences() != null) {
+                        ArrayList<Category> childReversedGiftPreferences =
+                                child.getGiftsPreferences();
+                        ArrayList<Category> childUpdateReversedGiftPreferences =
+                                childUpdate.getGiftsPreferences();
+                        Collections.reverse(childReversedGiftPreferences);
+                        Collections.reverse(childUpdateReversedGiftPreferences);
+                        for (Category category : childUpdateReversedGiftPreferences) {
+                            if (childReversedGiftPreferences.contains(category)) {
+                                childReversedGiftPreferences.remove(category);
+                                childReversedGiftPreferences.add(category);
+                            } else {
+                                childReversedGiftPreferences.add(category);
+                            }
+                        }
+
+                        Collections.reverse(childReversedGiftPreferences);
+                        child.setGiftsPreferences(childReversedGiftPreferences);
+                    }
+                }
+            }
+        }
     }
 }
