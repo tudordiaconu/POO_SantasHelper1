@@ -1,0 +1,333 @@
+{
+  "annualChildren" : [ {
+    "children" : [ {
+      "id" : 0,
+      "lastName" : "Cantemir",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 5,
+      "giftsPreferences" : [ "Books", "Board Games", "Toys", "Clothes" ],
+      "averageScore" : 3.0,
+      "niceScoreHistory" : [ 3.0, 5.0 ],
+      "assignedBudget" : 216.46153846153848,
+      "receivedGifts" : [ {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    }, {
+      "id" : 1,
+      "lastName" : "Mihalache",
+      "firstName" : "Miruna",
+      "city" : "Timisoara",
+      "age" : 18,
+      "giftsPreferences" : [ "Technology", "Toys", "Clothes" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 10.0 ],
+      "assignedBudget" : 721.5384615384617,
+      "receivedGifts" : [ {
+        "productName" : "Laptop",
+        "price" : 500.0,
+        "category" : "Technology"
+      }, {
+        "productName" : "Laptop",
+        "price" : 500.0,
+        "category" : "Technology"
+      }, {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    } ]
+  }, {
+    "children" : [ {
+      "id" : 0,
+      "lastName" : "Cantemir",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 6,
+      "giftsPreferences" : [ "Books", "Board Games", "Toys", "Clothes" ],
+      "averageScore" : 3.0,
+      "niceScoreHistory" : [ 3.0, 5.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    }, {
+      "id" : 2,
+      "lastName" : "Mihalache",
+      "firstName" : "Miruna",
+      "city" : "Braila",
+      "age" : 15,
+      "giftsPreferences" : [ "Toys", "Board Games", "Technology" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 3,
+      "lastName" : "Mihalache",
+      "firstName" : "Maria",
+      "city" : "Brasov",
+      "age" : 13,
+      "giftsPreferences" : [ "Technology", "Toys", "Clothes", "Board Games" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ 3.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    } ]
+  }, {
+    "children" : [ {
+      "id" : 0,
+      "lastName" : "Cantemir",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 7,
+      "giftsPreferences" : [ "Books", "Board Games", "Toys", "Clothes" ],
+      "averageScore" : 3.0,
+      "niceScoreHistory" : [ 3.0, 5.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    }, {
+      "id" : 2,
+      "lastName" : "Mihalache",
+      "firstName" : "Miruna",
+      "city" : "Braila",
+      "age" : 16,
+      "giftsPreferences" : [ "Toys", "Board Games", "Technology" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 3,
+      "lastName" : "Mihalache",
+      "firstName" : "Maria",
+      "city" : "Brasov",
+      "age" : 14,
+      "giftsPreferences" : [ "Technology", "Toys", "Clothes", "Board Games" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ 3.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 4,
+      "lastName" : "Popescu",
+      "firstName" : "Andreea",
+      "city" : "Cluj-Napoca",
+      "age" : 4,
+      "giftsPreferences" : [ "Toys", "Board Games", "Clothes" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 5,
+      "lastName" : "Pop",
+      "firstName" : "Miruna",
+      "city" : "Brasov",
+      "age" : 16,
+      "giftsPreferences" : [ "Toys", "Clothes" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    } ]
+  }, {
+    "children" : [ {
+      "id" : 0,
+      "lastName" : "Cantemir",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 8,
+      "giftsPreferences" : [ "Books", "Board Games", "Toys", "Clothes" ],
+      "averageScore" : 4.0,
+      "niceScoreHistory" : [ 3.0, 5.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    }, {
+      "id" : 2,
+      "lastName" : "Mihalache",
+      "firstName" : "Miruna",
+      "city" : "Braila",
+      "age" : 17,
+      "giftsPreferences" : [ "Toys", "Board Games", "Technology" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 3,
+      "lastName" : "Mihalache",
+      "firstName" : "Maria",
+      "city" : "Brasov",
+      "age" : 15,
+      "giftsPreferences" : [ "Technology", "Toys", "Clothes", "Board Games" ],
+      "averageScore" : 3.0,
+      "niceScoreHistory" : [ 3.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 4,
+      "lastName" : "Popescu",
+      "firstName" : "Andreea",
+      "city" : "Cluj-Napoca",
+      "age" : 5,
+      "giftsPreferences" : [ "Toys", "Board Games", "Clothes" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 5,
+      "lastName" : "Pop",
+      "firstName" : "Miruna",
+      "city" : "Brasov",
+      "age" : 17,
+      "giftsPreferences" : [ "Toys", "Clothes" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 6,
+      "lastName" : "Popa",
+      "firstName" : "Tudor",
+      "city" : "Oradea",
+      "age" : 12,
+      "giftsPreferences" : [ "Toys", "Technology" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    } ]
+  }, {
+    "children" : [ {
+      "id" : 0,
+      "lastName" : "Cantemir",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 9,
+      "giftsPreferences" : [ "Books", "Board Games", "Toys", "Clothes" ],
+      "averageScore" : 4.0,
+      "niceScoreHistory" : [ 3.0, 5.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ {
+        "productName" : "Lego",
+        "price" : 30.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Castle",
+        "price" : 15.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Handbag",
+        "price" : 200.0,
+        "category" : "Clothes"
+      } ]
+    }, {
+      "id" : 3,
+      "lastName" : "Mihalache",
+      "firstName" : "Maria",
+      "city" : "Brasov",
+      "age" : 16,
+      "giftsPreferences" : [ "Technology", "Toys", "Clothes", "Board Games" ],
+      "averageScore" : 3.0,
+      "niceScoreHistory" : [ 3.0 ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 4,
+      "lastName" : "Popescu",
+      "firstName" : "Andreea",
+      "city" : "Cluj-Napoca",
+      "age" : 6,
+      "giftsPreferences" : [ "Toys", "Board Games", "Clothes" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 6,
+      "lastName" : "Popa",
+      "firstName" : "Tudor",
+      "city" : "Oradea",
+      "age" : 13,
+      "giftsPreferences" : [ "Toys", "Technology" ],
+      "averageScore" : "NaN",
+      "niceScoreHistory" : [ ],
+      "assignedBudget" : "NaN",
+      "receivedGifts" : [ ]
+    } ]
+  } ]
+}
