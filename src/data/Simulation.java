@@ -21,10 +21,14 @@ public final class Simulation {
     /** method that gives gifts to children from database */
     public static void givingGifts(final Database database, final WriteDatabase writeDatabase) {
         ChildWriterList auxiliarList = new ChildWriterList();
+
+        /* sorts the gifts by the price in order to get the cheapest one */
         List<Gift> sortedGifts = database.getGifts().stream()
                 .sorted(Comparator.comparingDouble(Gift::getPrice)).toList();
 
         database.setAgeCategories();
+
+        /* calculates the average score for each child, based on its age */
         for (Child child : database.getChildren()) {
             ScoreStrategy scoreStrategy = ScoreStrategyFactory.createStrategy(child);
 
@@ -33,6 +37,7 @@ public final class Simulation {
             }
         }
 
+        /* sorts the children by their id in order to get the correct sum */
         List<Child> sortedChildren = database.getChildren().stream()
                 .sorted(Comparator.comparingInt(Child::getId)).toList();
 
@@ -42,10 +47,12 @@ public final class Simulation {
         }
 
         double budgetUnit = database.getSantaBudget() / allAverage;
+
         for (Child child : database.getChildren()) {
             child.setAssignedBudget(child.getAverageScore() * budgetUnit);
             child.receiveGift(sortedGifts);
 
+            /* creates a new childwriter in order to print the child */
             auxiliarList.getChildren().add(new ChildWriter(child.getId(), child.getLastName(),
                     child.getFirstName(), child.getCity(), child.getAge(),
                     child.getGiftsPreferences(), child.getAverageScore(),
@@ -53,37 +60,47 @@ public final class Simulation {
                     child.getReceivedGifts()));
         }
 
+        /* adds to the output database the list of childwriters for this year */
         writeDatabase.getAnnualChildren().add(auxiliarList);
     }
 
     /** method that simulates round zero */
     public static void roundZero(final Database database, final WriteDatabase writeDatabase) {
+        /* sets the children list and the gift list to the database*/
         database.setChildren(database.getInitialData().getChildren());
         database.setGifts(database.getInitialData().getSantaGiftsList());
+
+        /* removes the young adults */
         database.getChildren().removeIf(child -> (child.getAge() > Constants.TEEN_MAX));
 
+        /* adds to the nice score history for each child */
         for (Child child : database.getChildren()) {
             child.getNiceScoreHistory().add(child.getNiceScore());
         }
 
+        /* shares gifts to the children */
         Simulation.givingGifts(database, writeDatabase);
     }
 
     /** method that does the rounds following round zero */
     public static void action(final Database database, final WriteDatabase writeDatabase) {
         for (int i = 0; i < database.getNumberOfYears(); i++) {
+            /* erases the received gifts from the previous year */
             for (Child child : database.getChildren()) {
                 child.setReceivedGifts(new ArrayList<>());
                 child.setReceivedCategories(new ArrayList<>());
             }
 
+            /* ages the child by one year */
             for (Child child : database.getChildren()) {
                 child.setAge(child.getAge() + 1);
             }
 
+            /* removes young adults */
             database.getChildren().removeIf(child -> (child.getAge() > Constants.TEEN_MAX));
-            AnnualChange currentChange = database.getAnnualChanges().get(i);
 
+            AnnualChange currentChange = database.getAnnualChanges().get(i);
+            /* adds the new children if they're not young adults */
             for (Child child : currentChange.getNewChildren()) {
                 if (child.getAge() <= Constants.TEEN_MAX) {
                     database.getChildren().add(child);
@@ -91,12 +108,17 @@ public final class Simulation {
                 }
             }
 
+            /* makes the children specific updates */
             currentChange.updateChildren(database);
+
+            /* adds the new gifts */
             for (Gift gift : currentChange.getNewGifts()) {
                 database.getGifts().add(gift);
             }
 
+            /* updates Santa's budget */
             database.setSantaBudget(currentChange.getNewSantaBudget());
+            /* shares gifts to the children */
             Simulation.givingGifts(database, writeDatabase);
         }
     }

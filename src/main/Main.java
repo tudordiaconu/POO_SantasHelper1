@@ -32,7 +32,6 @@ public final class Main {
             Simulation.roundZero(readWrite.getDatabase(), readWrite.getWriteDatabase());
             Simulation.action(readWrite.getDatabase(), readWrite.getWriteDatabase());
             readWrite.writeAllData(outputName);
-
             readWrite.setDatabase(null);
         }
 

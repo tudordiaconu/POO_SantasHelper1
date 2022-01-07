@@ -66,17 +66,28 @@ public class AnnualChange {
         for (ChildUpdate childUpdate : this.getChildrenUpdates()) {
             for (Child child : database.getChildren()) {
                 if (Objects.equals(child.getId(), childUpdate.getId())) {
+                    /* if the child receives a new nice score, it is added to
+                    *  the history of nice scores */
                     if (childUpdate.getNiceScore() != null) {
                         child.getNiceScoreHistory().add(childUpdate.getNiceScore());
                     }
 
+                    /* if the child receives new gift preferences */
                     if (childUpdate.getGiftsPreferences() != null) {
                         ArrayList<Category> childReversedGiftPreferences =
                                 child.getGiftsPreferences();
                         ArrayList<Category> childUpdateReversedGiftPreferences =
                                 childUpdate.getGiftsPreferences();
+
+                        /* reverses the old preferences and the new preferences */
                         Collections.reverse(childReversedGiftPreferences);
                         Collections.reverse(childUpdateReversedGiftPreferences);
+
+                        /* now the preferences are from the least wanted to the most wanted */
+                        /* in both lists */
+
+                        /* adds the new preferences from the least wanted at the end of the
+                        *  old preferences list */
                         for (Category category : childUpdateReversedGiftPreferences) {
                             if (childReversedGiftPreferences.contains(category)) {
                                 childReversedGiftPreferences.remove(category);
@@ -86,6 +97,8 @@ public class AnnualChange {
                             }
                         }
 
+                        /* now the list that has all the preferences is sorted from the
+                        *  least wanted to the most wanted so we need to reverse it again */
                         Collections.reverse(childReversedGiftPreferences);
                         child.setGiftsPreferences(childReversedGiftPreferences);
                     }

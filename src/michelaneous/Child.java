@@ -168,14 +168,20 @@ public class Child {
 
     /** method that allows a child to receive a gift */
     public void receiveGift(final List<Gift> sortedGifts) {
+        /* the assigned budget for a child */
         Double money = this.assignedBudget;
 
+        /* browsing through all the gift preferences */
         for (Category category : this.getGiftsPreferences()) {
+            /* if child doesn't already have a gift from this category */
             if (!this.getReceivedCategories().contains(category)) {
                 for (Gift gift : sortedGifts) {
+                    /* if he has money for the gift */
                     if (money >= gift.getPrice()) {
                         if (gift.getCategory() == category) {
+                            /* if he doesn't already have this gift */
                             if (!this.getReceivedGifts().contains(gift)) {
+                                /* adds the gift and the category to the respective lists */
                                 this.getReceivedGifts().add(gift);
                                 this.getReceivedCategories().add(category);
                                 money -= gift.getPrice();
