@@ -14,13 +14,13 @@ public class ChildWriter {
     private Double averageScore;
     private ArrayList<Double> niceScoreHistory;
     private Double assignedBudget;
-    private ArrayList<Gift> receivedGifts;
+    private ArrayList<GiftWriter> receivedGifts;
 
     public ChildWriter(final Integer id, final String lastName, final String firstName,
                        final String city, final Integer age,
                        final ArrayList<Category> giftsPreferences, final Double averageScore,
                        final ArrayList<Double> niceScoreHistory, final Double assignedBudget,
-                       final ArrayList<Gift> receivedGifts) {
+                       final ArrayList<GiftWriter> receivedGifts) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -127,12 +127,12 @@ public class ChildWriter {
     }
 
     /** getter for the received gifts */
-    public ArrayList<Gift> getReceivedGifts() {
+    public ArrayList<GiftWriter> getReceivedGifts() {
         return receivedGifts;
     }
 
     /** setter for the received gifts */
-    public void setReceivedGifts(final ArrayList<Gift> receivedGifts) {
+    public void setReceivedGifts(final ArrayList<GiftWriter> receivedGifts) {
         this.receivedGifts = receivedGifts;
     }
 }

@@ -1,6 +1,7 @@
 package michelaneous;
 
 import enums.Category;
+import enums.ElvesType;
 
 import java.util.ArrayList;
 
@@ -8,18 +9,21 @@ public class ChildUpdate {
     private Integer id;
     private Double niceScore;
     private ArrayList<Category> giftsPreferences;
+    private ElvesType elf;
 
     public ChildUpdate() {
         this.id = null;
         this.niceScore = null;
         this.giftsPreferences = null;
+        this.elf = null;
     }
 
-    public ChildUpdate(final Integer id, final Double niceScore,
-                       final ArrayList<Category> giftsPreferences) {
-        this.id = id;
-        this.niceScore = niceScore;
-        this.giftsPreferences = giftsPreferences;
+    public ElvesType getElf() {
+        return elf;
+    }
+
+    public void setElf(ElvesType elf) {
+        this.elf = elf;
     }
 
     /** getter for the id of the update */

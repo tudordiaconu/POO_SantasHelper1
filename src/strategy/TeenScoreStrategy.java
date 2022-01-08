@@ -20,6 +20,9 @@ public class TeenScoreStrategy implements ScoreStrategy {
             score += child.getNiceScoreHistory().get(j) * (j + 1);
         }
 
-        child.setAverageScore(score / sum);
+        score = score / sum;
+        score += score * child.getNiceScoreBonus() / 100;
+
+        child.setAverageScore(score);
     }
 }

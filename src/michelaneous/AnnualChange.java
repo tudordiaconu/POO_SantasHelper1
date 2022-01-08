@@ -2,6 +2,7 @@ package michelaneous;
 
 import data.Database;
 import enums.Category;
+import enums.CityStrategyEnum;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,14 +13,27 @@ public class AnnualChange {
     private ArrayList<Gift> newGifts;
     private ArrayList<Child> newChildren;
     private ArrayList<ChildUpdate> childrenUpdates;
+    private CityStrategyEnum strategy;
 
     public AnnualChange() {
         this.newSantaBudget = null;
         this.newGifts = null;
         this.newChildren = null;
         this.childrenUpdates = null;
+        this.strategy = null;
     }
 
+    public void setChildrenUpdates(ArrayList<ChildUpdate> childrenUpdates) {
+        this.childrenUpdates = childrenUpdates;
+    }
+
+    public CityStrategyEnum getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(CityStrategyEnum strategy) {
+        this.strategy = strategy;
+    }
 
     /** getter for the new budget */
     public Double getNewSantaBudget() {
@@ -101,6 +115,10 @@ public class AnnualChange {
                         *  least wanted to the most wanted so we need to reverse it again */
                         Collections.reverse(childReversedGiftPreferences);
                         child.setGiftsPreferences(childReversedGiftPreferences);
+                    }
+
+                    if (childUpdate.getElf() != null) {
+                        child.setElf(childUpdate.getElf());
                     }
                 }
             }

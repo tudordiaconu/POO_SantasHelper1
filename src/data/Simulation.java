@@ -1,6 +1,7 @@
 package data;
 
 import common.Constants;
+import enums.ElvesType;
 import michelaneous.AnnualChange;
 import michelaneous.Child;
 import michelaneous.ChildWriter;
@@ -37,27 +38,19 @@ public final class Simulation {
             }
         }
 
-        /* sorts the children by their id in order to get the correct sum */
-        List<Child> sortedChildren = database.getChildren().stream()
-                .sorted(Comparator.comparingInt(Child::getId)).toList();
-
-        double allAverage = 0;
-        for (Child child : sortedChildren) {
-            allAverage += child.getAverageScore();
-        }
-
-        double budgetUnit = database.getSantaBudget() / allAverage;
-
         for (Child child : database.getChildren()) {
-            child.setAssignedBudget(child.getAverageScore() * budgetUnit);
+            child.calculateBudget(database);
             child.receiveGift(sortedGifts);
+            if (child.getElf() == ElvesType.YELLOW) {
+                child.yellowElf(sortedGifts);
+            }
 
             /* creates a new childwriter in order to print the child */
             auxiliarList.getChildren().add(new ChildWriter(child.getId(), child.getLastName(),
                     child.getFirstName(), child.getCity(), child.getAge(),
                     child.getGiftsPreferences(), child.getAverageScore(),
                     child.getNiceScoreHistory(), child.getAssignedBudget(),
-                    child.getReceivedGifts()));
+                    child.getWriterReceivedGifts()));
         }
 
         /* adds to the output database the list of childwriters for this year */
@@ -103,8 +96,10 @@ public final class Simulation {
             /* adds the new children if they're not young adults */
             for (Child child : currentChange.getNewChildren()) {
                 if (child.getAge() <= Constants.TEEN_MAX) {
-                    database.getChildren().add(child);
-                    child.getNiceScoreHistory().add(child.getNiceScore());
+                    if (!database.getChildren().contains(child)) {
+                        database.getChildren().add(child);
+                        child.getNiceScoreHistory().add(child.getNiceScore());
+                    }
                 }
             }
 
@@ -113,7 +108,9 @@ public final class Simulation {
 
             /* adds the new gifts */
             for (Gift gift : currentChange.getNewGifts()) {
-                database.getGifts().add(gift);
+                if (!database.getGifts().contains(gift)) {
+                    database.getGifts().add(gift);
+                }
             }
 
             /* updates Santa's budget */

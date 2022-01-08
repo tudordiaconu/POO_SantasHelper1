@@ -13,6 +13,8 @@ public class BabyScoreStrategy implements ScoreStrategy {
     /** sets the score of a baby */
     @Override
     public void getScore() {
-        child.setAverageScore(Constants.BABY_SCORE);
+        double score = Constants.BABY_SCORE;
+        score += score * child.getNiceScoreBonus() / 100;
+        child.setAverageScore(score);
     }
 }

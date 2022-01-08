@@ -18,6 +18,9 @@ public class KidScoreStrategy implements ScoreStrategy {
             score += child.getNiceScoreHistory().get(j);
         }
 
-        child.setAverageScore(score / child.getNiceScoreHistory().size());
+        score = score / child.getNiceScoreHistory().size();
+        score += score * child.getNiceScoreBonus() / 100;
+
+        child.setAverageScore(score);
     }
 }

@@ -1,8 +1,11 @@
 package michelaneous;
 
+import data.Database;
 import enums.Category;
+import enums.ElvesType;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Child {
@@ -19,6 +22,9 @@ public class Child {
     private Double assignedBudget;
     private ArrayList<Gift> receivedGifts;
     private ArrayList<Category> receivedCategories;
+    private ArrayList<GiftWriter> writerReceivedGifts;
+    private Double niceScoreBonus;
+    private ElvesType elf;
 
     public Child() {
         this.id = -1;
@@ -34,6 +40,33 @@ public class Child {
         this.assignedBudget = (double) 0;
         this.receivedGifts = new ArrayList<>();
         this.receivedCategories = new ArrayList<>();
+        this.writerReceivedGifts = new ArrayList<>();
+        this.niceScoreBonus = (double) 0;
+        this.elf = null;
+    }
+
+    public ArrayList<GiftWriter> getWriterReceivedGifts() {
+        return writerReceivedGifts;
+    }
+
+    public void setWriterReceivedGifts(ArrayList<GiftWriter> writerReceivedGifts) {
+        this.writerReceivedGifts = writerReceivedGifts;
+    }
+
+    public Double getNiceScoreBonus() {
+        return niceScoreBonus;
+    }
+
+    public void setNiceScoreBonus(Double niceScoreBonus) {
+        this.niceScoreBonus = niceScoreBonus;
+    }
+
+    public ElvesType getElf() {
+        return elf;
+    }
+
+    public void setElf(ElvesType elf) {
+        this.elf = elf;
     }
 
     /** getter for the history of nice scores */
@@ -168,6 +201,8 @@ public class Child {
 
     /** method that allows a child to receive a gift */
     public void receiveGift(final List<Gift> sortedGifts) {
+        writerReceivedGifts = new ArrayList<>();
+
         /* the assigned budget for a child */
         Double money = this.assignedBudget;
 
@@ -176,6 +211,9 @@ public class Child {
             /* if child doesn't already have a gift from this category */
             if (!this.getReceivedCategories().contains(category)) {
                 for (Gift gift : sortedGifts) {
+                    if (gift.getQuantity() == 0) {
+                        continue;
+                    }
                     /* if he has money for the gift */
                     if (money >= gift.getPrice()) {
                         if (gift.getCategory() == category) {
@@ -184,12 +222,57 @@ public class Child {
                                 /* adds the gift and the category to the respective lists */
                                 this.getReceivedGifts().add(gift);
                                 this.getReceivedCategories().add(category);
+                                this.writerReceivedGifts.add(new GiftWriter(gift.getProductName(),
+                                        gift.getPrice(), gift.getCategory()));
                                 money -= gift.getPrice();
+                                gift.setQuantity(gift.getQuantity() - 1);
                                 break;
                             }
                         }
                     } else {
                         break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void calculateBudget(final Database database) {
+        List<Child> sortedChildren = database.getChildren().stream()
+                .sorted(Comparator.comparingInt(Child::getId)).toList();
+
+        double allAverage = 0;
+        for (Child child : sortedChildren) {
+            allAverage += child.getAverageScore();
+        }
+
+        double budgetUnit = database.getSantaBudget() / allAverage;
+        this.setAssignedBudget(this.getAverageScore() * budgetUnit);
+
+        switch (this.elf) {
+            case BLACK -> {
+                Double budget = this.getAssignedBudget();
+                budget -= budget * 30 / 100;
+                this.setAssignedBudget(budget);
+            }
+
+            case PINK -> {
+                Double budget = this.getAssignedBudget();
+                budget += budget * 30 / 100;
+                this.setAssignedBudget(budget);
+            }
+        }
+    }
+
+    public void yellowElf(final List <Gift> sortedGifts) {
+        if (this.receivedGifts.size() == 0) {
+            Category favouriteCategory = this.giftsPreferences.get(0);
+            for (Gift gift : sortedGifts) {
+                if (gift.getCategory() == favouriteCategory) {
+                    if (gift.getQuantity() > 0) {
+                        this.receivedGifts.add(gift);
+                        this.receivedCategories.add(favouriteCategory);
+                        gift.setQuantity(gift.getQuantity() - 1);
                     }
                 }
             }
